@@ -6,7 +6,7 @@ import webbrowser
 from soccer_api import SOCCERAPI
 
 # Initialize API and load data
-soccerapi = SOCCERAPI("data/players_data.csv")
+soccerapi = SOCCERAPI("players_data-2024_2025.csv")
 
 # Get filtered data (adjust these parameters as needed)
 df = soccerapi.get_data(

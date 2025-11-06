@@ -4,7 +4,7 @@ import webbrowser
 
 # === Load your dataset ===
 # Make sure the CSV file is in: data/players_data.csv
-df = pd.read_csv("data/players_data.csv")
+df = pd.read_csv("players_data-2024_2025.csv.csv")
 
 # === Filter players like in your JavaScript version ===
 df = df[(df["Min"] >= 500) & (df["Gls"] >= 5)]
