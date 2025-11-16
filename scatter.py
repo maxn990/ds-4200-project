@@ -3,11 +3,19 @@ import plotly.express as px
 import webbrowser
 
 # === Load your dataset ===
-# Make sure the CSV file is in: data/players_data.csv
 df = pd.read_csv("players_data-2024_2025.csv")
 
 # === Filter players like in your JavaScript version ===
 df = df[(df["Min"] >= 500) & (df["Gls"] >= 5)]
+
+# === Define color mapping for leagues ===
+color_map = {
+    'eng Premier League': '#38003c',  # Purple
+    'es La Liga': '#ff6900',          # Orange
+    'it Serie A': '#0068a8',          # Blue
+    'de Bundesliga': '#d20026',       # Red
+    'fr Ligue 1': '#1d3557',          # Dark Blue
+}
 
 # === Create scatter plot ===
 fig = px.scatter(
@@ -15,6 +23,7 @@ fig = px.scatter(
     x="Gls",
     y="xG",
     color="Comp",
+    color_discrete_map=color_map,
     hover_data=["Player", "Squad", "Age", "Ast"],
     title="⚽ Goals vs Expected Goals<br><sub>Players with ≥500 min & ≥5 goals</sub>",
 )
