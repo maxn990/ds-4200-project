@@ -36,7 +36,7 @@ for league in df['League'].unique():
         x=league_data['Gls'],
         y=league_data['xG'],
         mode='markers',
-        name=league,
+        name=league,  # ✅ This name appears in the built-in legend
         marker=dict(
             color=league_colors[league],
             size=10,
@@ -53,7 +53,7 @@ for league in df['League'].unique():
             '<extra></extra>'
         ),
         customdata=league_data[['Player', 'Squad', 'Age', 'Ast']].values,
-        showlegend=False
+        showlegend=True  # ✅ show in Plotly legend
     ))
 
 # Add reference line (Goals = xG)
@@ -66,26 +66,46 @@ fig.add_shape(
     line=dict(color="rgba(0,0,0,0.2)", width=2, dash="dash"),
 )
 
+# === Layout with built-in legend and y-axis fully visible ===
 fig.update_layout(
     title={
         'text': "⚽ Goals vs Expected Goals<br><sub>Players with ≥500 min & ≥5 goals</sub>",
         'x': 0.5,
         'xanchor': 'center'
     },
-    xaxis_title="Goals (Gls)",
-    yaxis_title="Expected Goals (xG)",
+    xaxis=dict(
+        title="Goals (Gls)",
+        showgrid=True,
+        gridcolor='rgba(0,0,0,0.05)',
+        automargin=True
+    ),
+    yaxis=dict(
+        title=dict(
+            text="Expected Goals (xG)",
+            standoff=20
+        ),
+        showgrid=True,
+        gridcolor='rgba(0,0,0,0.05)',
+        automargin=True
+    ),
     plot_bgcolor="#f9f9f9",
     paper_bgcolor="#f0f2f5",
     font=dict(family="Segoe UI, sans-serif", size=14),
     margin=dict(l=80, r=40, t=120, b=80),
     hovermode='closest',
-    xaxis=dict(showgrid=True, gridcolor='rgba(0,0,0,0.05)'),
-    yaxis=dict(showgrid=True, gridcolor='rgba(0,0,0,0.05)'),
-    showlegend=False,
+    showlegend=True,  # ✅ enable built-in legend
+    legend=dict(
+        title="League",
+        orientation="h",   # horizontal legend
+        x=0.5,
+        xanchor='center',
+        y=-0.15,          # below the plot
+        font=dict(size=12)
+    ),
     height=1000
 )
 
-# === Create custom HTML with legend OUTSIDE the plot ===
+# === Export HTML ===
 output_file = "soccer_analytics_plot.html"
 
 plotly_html = fig.to_html(
@@ -108,55 +128,17 @@ custom_html = f"""
             background: #f0f2f5;
         }}
         .plot-container {{
-            width: 95%;
-            max-width: 1200px;
+            width: 100%;
+            min-width: 1200px;  /* ensures y-axis label fits */
             margin: 0 auto;
             height: 1000px;
-        }}
-        .custom-legend {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            padding: 15px 25px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin: 20px auto;
-            max-width: 900px;
-            flex-wrap: wrap;
-            transition: all 0.3s ease;
-        }}
-        .legend-item {{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: default;
-        }}
-        .legend-item:hover {{
-            transform: scale(1.05);
-        }}
-        .legend-color {{
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 1px solid white;
+            overflow: visible;
         }}
     </style>
 </head>
 <body>
     <div class="plot-container">
         {plotly_html}
-    </div>
-
-    <div class="custom-legend">
-        <div class="legend-item"><div class="legend-color" style="background-color: #9B4DB8;"></div><span>Premier League</span></div>
-        <div class="legend-item"><div class="legend-color" style="background-color: #FF4C4C;"></div><span>La Liga</span></div>
-        <div class="legend-item"><div class="legend-color" style="background-color: #0086D4;"></div><span>Serie A</span></div>
-        <div class="legend-item"><div class="legend-color" style="background-color: #B00020;"></div><span>Bundesliga</span></div>
-        <div class="legend-item"><div class="legend-color" style="background-color: #0B3A78;"></div><span>Ligue 1</span></div>
     </div>
 </body>
 </html>

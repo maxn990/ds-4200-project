@@ -334,28 +334,41 @@
             </section>
 
             <!-- Visualization 3: Goals vs xG -->
-            <section id="viz3">
-                <h2>📊 Visualization 3: Performance vs Expectation</h2>
-                <div class="chart-container">
-                    <div class="chart-title">Goals Scored vs Expected Goals (xG)</div>
-                    <p class="chart-description">
-                        <strong>Interaction:</strong> Click on league names in the legend to filter by competition. Hover over points to see player details.
-                    </p>
-                    <div style="position: relative; min-width: 1100px;">
-    <iframe src="soccer_analytics_plot.html" width="100%" height="1000" frameborder="0"
-            onload="this.style.display='block'"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
-            style="display: none;"></iframe>
-    <div style="display: none; padding: 40px; text-align: center; background: #fff3cd; border-radius: 8px; border: 2px solid #ffc107;">
+<!-- Visualization 3: Goals vs xG -->
+<section id="viz3">
+  <h2>📊 Visualization 3: Performance vs Expectation</h2>
+  <div class="chart-container">
+    <div class="chart-title">Goals Scored vs Expected Goals (xG)</div>
+    <p class="chart-description">
+      <strong>Interaction:</strong> Click on league names in the legend to filter by competition. Hover over points to see player details.
+    </p>
+
+    <!-- Container adjusted for full y-axis visibility -->
+    <div style="position: relative; min-width: 1200px; overflow: visible;">
+      <iframe
+        src="soccer_analytics_plot.html"
+        width="1200"
+        height="1000"
+        frameborder="0"
+        style="display: block; border: 0;"
+        onload="this.style.display='block'"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      </iframe>
+
+      <!-- Fallback if iframe fails to load -->
+      <div style="display: none; padding: 40px; text-align: center; background: #fff3cd; border-radius: 8px; border: 2px solid #ffc107;">
         <p><strong>⚠️ Visualization not available</strong></p>
         <p>Please ensure <code>soccer_analytics_plot.html</code> is in the same folder.</p>
+      </div>
     </div>
-</div>
-                    <p style="margin-top: 20px;">
-                        <strong>Key Takeaway:</strong> The relationship between actual goals and expected goals (xG) reveals which players are over-performing or under-performing relative to the quality of chances they receive. Players significantly above the diagonal line are clinical finishers who convert chances at rates better than expected. Those below the line may be experiencing poor form or facing exceptional goalkeeping. This metric is crucial for identifying sustainable performance versus temporary hot or cold streaks.
-                    </p>
-                </div>
-            </section>
+
+    <p style="margin-top: 20px;">
+      <strong>Key Takeaway:</strong> The relationship between actual goals and expected goals (xG) reveals which players are over-performing or under-performing relative to the quality of chances they receive. Players significantly above the diagonal line are clinical finishers who convert chances at rates better than expected. Those below the line may be experiencing poor form or facing exceptional goalkeeping. This metric is crucial for identifying sustainable performance versus temporary hot or cold streaks.
+    </p>
+  </div>
+</section>
+
+
 
             <!-- Visualization 4: Radar Comparison -->
             <section id="viz4">
