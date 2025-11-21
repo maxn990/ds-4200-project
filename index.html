@@ -29,33 +29,33 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             overflow: hidden;
         }
-        
+
         header {
             background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
             color: white;
             padding: 60px 40px;
             text-align: center;
         }
-        
+
         header h1 {
             font-size: 3em;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         header p {
             font-size: 1.3em;
             opacity: 0.95;
         }
-        
+
         .content {
             padding: 40px;
         }
-        
+
         section {
             margin-bottom: 60px;
         }
-        
+
         h2 {
             color: #2d6a4f;
             font-size: 2em;
@@ -63,19 +63,19 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #2d6a4f;
         }
-        
+
         h3 {
             color: #40916c;
             font-size: 1.5em;
             margin: 30px 0 15px 0;
         }
-        
+
         p {
             margin-bottom: 15px;
             font-size: 1.05em;
             text-align: justify;
         }
-        
+
         .chart-container {
             background-color: #f8f9fa;
             border-radius: 8px;
@@ -83,20 +83,20 @@
             margin: 30px 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
+
         .chart-title {
             font-size: 1.4em;
             color: #2d6a4f;
             margin-bottom: 15px;
             font-weight: 600;
         }
-        
+
         .chart-description {
             color: #666;
             margin-bottom: 20px;
             font-style: italic;
         }
-        
+
         .slider-container {
             margin: 20px 0;
             padding: 20px;
@@ -104,20 +104,20 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
-        
+
         .slider-label {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-        
+
         .slider-label span {
             font-weight: bold;
             color: #2d6a4f;
             font-size: 16px;
         }
-        
+
         input[type="range"] {
             width: 100%;
             height: 8px;
@@ -125,7 +125,7 @@
             background: #ddd;
             outline: none;
         }
-        
+
         input[type="range"]::-webkit-slider-thumb {
             appearance: none;
             width: 20px;
@@ -134,7 +134,7 @@
             background: #2d6a4f;
             cursor: pointer;
         }
-        
+
         input[type="range"]::-moz-range-thumb {
             width: 20px;
             height: 20px;
@@ -143,7 +143,7 @@
             cursor: pointer;
             border: none;
         }
-        
+
         .tooltip {
             position: absolute;
             text-align: center;
@@ -156,52 +156,52 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        
+
         .axis-label {
             font-size: 14px;
             fill: #666;
         }
-        
+
         .bar {
             transition: opacity 0.3s;
         }
-        
+
         .bar:hover {
             opacity: 0.8;
         }
-        
+
         .point {
             opacity: 0.7;
             transition: opacity 0.3s, r 0.3s;
         }
-        
+
         .point:hover {
             opacity: 1;
         }
-        
+
         .grid-line {
             stroke: #e0e0e0;
             stroke-width: 1;
         }
-        
+
         .axis {
             font-size: 12px;
         }
-        
+
         .axis path,
         .axis line {
             fill: none;
             stroke: #333;
             shape-rendering: crispEdges;
         }
-        
+
         .references {
             background: #e8f5e9;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
         }
-        
+
         .references a {
             color: #2d6a4f;
             text-decoration: none;
@@ -213,36 +213,36 @@
             border-radius: 5px;
             transition: transform 0.2s;
         }
-        
+
         .references a:hover {
             transform: translateX(10px);
             background: #d4edda;
         }
-        
+
         .key-findings {
             background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
             padding: 30px;
             border-radius: 8px;
             border-left: 5px solid #2d6a4f;
         }
-        
+
         .key-findings ul {
             margin-left: 30px;
             margin-top: 15px;
         }
-        
+
         .key-findings li {
             margin: 15px 0;
             font-size: 1.1em;
         }
-        
+
         footer {
             background: #2d6a4f;
             color: white;
             text-align: center;
             padding: 30px;
         }
-        
+
         .data-info {
             background: #fff3cd;
             padding: 20px;
@@ -258,7 +258,7 @@
             <h1>⚽ Football Players Analytics 2024-2025</h1>
             <p>A Comprehensive Analysis of European Football Performance Metrics</p>
         </header>
-        
+
         <div class="content">
             <!-- Introduction Section -->
             <section id="introduction">
@@ -341,16 +341,16 @@
                     <p class="chart-description">
                         <strong>Interaction:</strong> Click on league names in the legend to filter by competition. Hover over points to see player details.
                     </p>
-                    <div style="position: relative;">
-                        <iframe src="soccer_analytics_plot.html" width="100%" height="700" frameborder="0" 
-                                onload="this.style.display='block'" 
-                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
-                                style="display: none;"></iframe>
-                        <div style="display: none; padding: 40px; text-align: center; background: #fff3cd; border-radius: 8px; border: 2px solid #ffc107;">
-                            <p><strong>⚠️ Visualization not available</strong></p>
-                            <p>Please ensure <code>soccer_analytics_plot.html</code> is in the same folder.</p>
-                        </div>
-                    </div>
+                    <div style="position: relative; min-width: 1100px;">
+    <iframe src="soccer_analytics_plot.html" width="100%" height="1000" frameborder="0"
+            onload="this.style.display='block'"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+            style="display: none;"></iframe>
+    <div style="display: none; padding: 40px; text-align: center; background: #fff3cd; border-radius: 8px; border: 2px solid #ffc107;">
+        <p><strong>⚠️ Visualization not available</strong></p>
+        <p>Please ensure <code>soccer_analytics_plot.html</code> is in the same folder.</p>
+    </div>
+</div>
                     <p style="margin-top: 20px;">
                         <strong>Key Takeaway:</strong> The relationship between actual goals and expected goals (xG) reveals which players are over-performing or under-performing relative to the quality of chances they receive. Players significantly above the diagonal line are clinical finishers who convert chances at rates better than expected. Those below the line may be experiencing poor form or facing exceptional goalkeeping. This metric is crucial for identifying sustainable performance versus temporary hot or cold streaks.
                     </p>
@@ -556,7 +556,7 @@
         }
 
         function initBarChart() {
-            const margin = {top: 40, right: 80, bottom: 60, left: 100};
+            const margin = {top: 40, right: 180, bottom: 60, left: 100};
             const width = 900 - margin.left - margin.right;
             const height = 500 - margin.top - margin.bottom;
             
@@ -713,7 +713,7 @@
         }
 
         function initScatterPlot() {
-            const margin = {top: 40, right: 80, bottom: 80, left: 100};
+            const margin = {top: 40, right: 180, bottom: 80, left: 100};
             const width = 900 - margin.left - margin.right;
             const height = 600 - margin.top - margin.bottom;
             
